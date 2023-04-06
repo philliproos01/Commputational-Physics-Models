@@ -104,5 +104,4 @@ void loop() {
     Serial.print(F("SD Card: error on opening file arduino.txt"));
   }
 
-  
 }
