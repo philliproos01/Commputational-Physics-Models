@@ -29,13 +29,16 @@ char myCharArray[] = "ArduinoGetStarted.com";
 byte myByteArray[] = {'1', '2', '3', '4', '5'};
 
 void setup() {
+  Serial.begin(9600);
+  //Serial.begin(38400);
   Wire.begin();
   Serial.println("Initializing I2C devices...");
   accelgyro.initialize();
   Serial.println("Testing device connections...");
   Serial.println(accelgyro.testConnection() ? "MPU6050 connection successful" : "MPU6050 connection failed");
  
-  Serial.begin(38400);
+  
+  
 
   if (!SD.begin(PIN_SPI_CS)) {
     Serial.println(F("SD CARD FAILED, OR NOT PRESENT!"));
@@ -54,13 +57,7 @@ void setup() {
 
 void loop() {
     accelgyro.getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
-    Serial.print("a/g:\t");
-    Serial.print(ax); Serial.print("\t");
-    Serial.print(ay); Serial.print("\t");
-    Serial.print(az); Serial.print("\t");
-    Serial.print(gx); Serial.print("\t");
-    Serial.print(gy); Serial.print("\t");
-    Serial.println(gz);
+   
     for (int i = 0; i < 10000; i++) {
     if (myFile) {
       accelgyro.getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
@@ -71,6 +68,13 @@ void loop() {
       myFile.print(gx); myFile.print("\t");
       myFile.print(gy); myFile.print("\t");
       myFile.println(gz);
+      Serial.print("a/g:\t");
+      Serial.print(ax); Serial.print("\t");
+      Serial.print(ay); Serial.print("\t");
+      Serial.print(az); Serial.print("\t");
+      Serial.print(gx); Serial.print("\t");
+      Serial.print(gy); Serial.print("\t");
+      Serial.println(gz);
       myFile.write("\n"); // new line
     
 /*
