@@ -1,12 +1,3 @@
-
-/*
- * Created by ArduinoGetStarted.com
- *
- * This example code is in the public domain
- *
- * Tutorial page: https://arduinogetstarted.com/tutorials/arduino-write-variable-to-sd-card
- */
-
 #include <SD.h>
 #include "I2Cdev.h"
 #include "MPU6050.h"
