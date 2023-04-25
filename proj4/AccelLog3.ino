@@ -11,13 +11,6 @@ int16_t gx, gy, gz;
 
 #define PIN_SPI_CS 4
 
-File myFile;
-int myInt = -52;
-float myFloat = -12.7;
-String myString = "HELLO";
-char myCharArray[] = "ArduinoGetStarted.com";
-byte myByteArray[] = {'1', '2', '3', '4', '5'};
-
 void setup() {
   Serial.begin(9600);
 
